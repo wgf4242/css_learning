@@ -1,0 +1,53 @@
+// 变量
+$col: #333;
+
+.text1 {
+  color: $col;
+}
+
+.text2 {
+  color: $col;
+}
+
+.text3 {
+  color: $col;
+}
+
+// 嵌套
+#main {
+  color: #00ff00;
+
+  .redbox {
+    background-color: #ff0000;
+    //#main {color: #00ff00;}
+    //#main .redbox{color: #00ff00;}
+  }
+}
+
+// minxin
+@mixin larget-text {
+  color: #fff;
+}
+
+.page-title {
+  @include larget-text;
+  padding: 4px;
+}
+
+//.page-title {
+//  color: #fff;
+//  padding: 4px;
+//}
+
+// function
+@function grid-width($n) {
+  @return $n*100px;
+}
+
+#sidebar {
+  width: grid-width(2);
+}
+
+//#sidebar {
+//  width: 200px;
+//}

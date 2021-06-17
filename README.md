@@ -48,3 +48,72 @@ Layout 布局方式 前缀 .l-header .l-main .l-footer
 Modules 可复用的样式
 State 模块的不同状态的一些样式, 可加前缀 is-hidden
 Theme 
+
+## 2-5 CSS设计模式完结（3）_.mp4
+ITCSS 模型 7层
+
+
+Settings
+Tools 样式工具 clear fix
+Generic -- normalize.css
+Base
+Objects
+Components
+Trumps 都会加!important 权重变高
+
+ACSS
+一个样式属性一个类
+好处：极强的利用性、维护成本低
+坏处：破坏了css命名的语义化
+`<div class="bg-gray-200 p-4></div>`
+
+使用时 SMACSS和ITCSS二选一
+
+## 2-7 CSS架构之Settings层代码实现_.mp4
+SASS
+定义一些公共变量
+公共变量：颜色、边框、字体大小、阴影、层级 
+
+http://sass.hk/docs
+
+https://github.com/ElemeFE/element/blob/dev/packages/theme-chalk/src/common/var.scss
+
+
+
+## 2-8 CSS架构之Tools层代码实现（上）_.mp4
+引入SassMagic工具库
+
+https://github.com/W3cplus/SassMagic 复制到 src/styles/tools目录下, 去掉些没有的内容
+
+https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
+
+2.vite.config.js 配置
+```js
+export default defineConfig({
+  resolve: {
+    alias: {
+        '@': path.resolve(__dirname, 'src')
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import '@/styles/tools/_sassMagic.scss';`,
+      },
+    },
+  },
+  plugins: [vue()],
+});
+```
+
+## 2-10 CSS架构之Base层代码实现（1）_.mp4
+npm install normalize.css
+
+Generic层：引入normalize.css 重置浏览器默认样式
+Base层： 对各类元素基础样式进行补充
+
+## FAQ
+
+### 1.vite scss add additionalData, 预处理
+https://vitejs.dev/config/#css-preprocessoroptions
+
